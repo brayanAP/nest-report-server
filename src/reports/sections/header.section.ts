@@ -26,7 +26,8 @@ export const headerSection = (options: HeaderOptions): Content => {
         text: DateFormatter.getDDMMMMYYYY(new Date()),
         alignment: 'right',
         margin: [20, 30],
-        width: 150,
+        width: 100,
+        fontSize: 8,
       }
     : null;
 

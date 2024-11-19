@@ -18,4 +18,22 @@ export class StoreReportsController {
     pdfDocument.pipe(response);
     pdfDocument.end();
   }
+
+  @Get('customers/statistics')
+  async getCustomersStatistics(@Res() response: Response) {
+    const pdfDocument = await this.storeReportsService.getCustomersStatistics();
+    response.setHeader('Content-Type', 'application/pdf');
+    pdfDocument.info.Title = `Store Customers Statistics`;
+    pdfDocument.pipe(response);
+    pdfDocument.end();
+  }
+
+  @Get('sales/bill')
+  async getSalesBill(@Res() response: Response) {
+    const pdfDocument = await this.storeReportsService.getSalesBill();
+    response.setHeader('Content-Type', 'application/pdf');
+    pdfDocument.info.Title = `Store Sales Bill`;
+    pdfDocument.pipe(response);
+    pdfDocument.end();
+  }
 }
